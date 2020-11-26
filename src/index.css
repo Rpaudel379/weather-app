@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "montserrat", sans-serif;
+  background: linear-gradient(#0e65b636, #0e65b636),
+    url("./sky-690293_1920.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.title {
+  color: #fff;
+  font-size: 48px;
+  padding: 1em;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 2em;
+  max-width: 90vw;
+  width: 30em;
+}
+
+#city {
+  padding: 0.5em;
+  padding-left: 3em;
+  border-radius: 20px;
+  border: none;
+  background-color: #ccd8df77;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  font-size: 22px;
+}
+
+.information {
+  margin: 0 auto;
+  margin-top: 3em;
+  padding: 1em;
+  background-color: #ccd8df77;
+  text-align: center;
+  max-width: 90vw;
+  width: 30em;
+  border-radius: 20px;
+  color: #0f0613;
+}
+
+.city-country {
+  position: relative;
+  color: #0f0613;
+  font-weight: bold;
+  font-size: 1.3em;
+  letter-spacing: 3px;
+}
+
+.country {
+  position: absolute;
+  font-size: 10px;
+  padding: 0.2em 0.7em;
+  top: -2px;
+  margin-left: 0.9px;
+  background-color: #02395a;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: lighter;
+  letter-spacing: 3.17px;
+}
+
+.temp {
+  margin: 1em 0;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.temp sup {
+  font-weight: bold;
+}
+
+footer {
+  color: #fff;
+  position: absolute;
+  bottom: 35px;
+  right: 20px;
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+@media screen and (min-width: 874px) {
+  .information,
+  .form {
+    width: 40em;
+  }
+
+  .city-country {
+    font-size: 2.8em;
+  }
+  .temp {
+    font-size: 35px;
+  }
+  sup {
+    font-size: 1em;
+  }
+
+  footer {
+    bottom: 45px;
+    right: 100px;
+  }
+}
+
+::placeholder {
+  color: #fff;
+}
