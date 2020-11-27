@@ -12,6 +12,17 @@ body {
   height: 100vh;
 }
 
+
+  .error{
+    color: red;
+    font-weight: 400;
+    font-size: 2.4em;
+    padding: .5em 1em;
+    border-radius: .9em;
+    text-transform: capitalize;
+    text-align: center;
+  }
+
 .title {
   color: #fff;
   font-size: 48px;
@@ -26,6 +37,8 @@ body {
   max-width: 90vw;
   width: 30em;
 }
+
+
 
 #city {
   padding: 0.5em;
@@ -82,6 +95,11 @@ body {
   font-weight: bold;
 }
 
+ .desc{
+  font-size: 1.3em; 
+  font-style: italic;
+}
+
 footer {
   color: #fff;
   position: absolute;
@@ -105,6 +123,10 @@ footer {
   }
   sup {
     font-size: 1em;
+  }
+
+  .desc{
+    font-size: 2.3em;
   }
 
   footer {

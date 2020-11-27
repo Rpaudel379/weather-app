@@ -1,6 +1,6 @@
 import React from "react";
 
-const Info = ({ main, name, sys }) => {
+const Info = ({ main, name, sys, weather }) => {
   const ss = Math.round((main?.temp - 273.15) * 1000) / 1000;
 
   return (
@@ -14,6 +14,7 @@ const Info = ({ main, name, sys }) => {
         {ss}
         <sup>°C</sup>{" "}
       </p>
+      {weather && <p className="desc">{weather[0]["description"]}</p>}
     </div>
   );
 };

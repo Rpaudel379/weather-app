@@ -2,24 +2,19 @@ import React, { useState } from "react";
 
 const Input = ({ toApp }) => {
   const [city, setCity] = useState("");
-  const [fixedCity, setFixedCity] = useState("");
 
   const handleChange = (e) => {
     setCity(e.target.value);
   };
 
-  const handelSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setFixedCity(city);
+    toApp(city);
     setCity("");
   };
 
-  React.useEffect(() => {
-    toApp(fixedCity);
-  }, [fixedCity, toApp]);
-
   return (
-    <form onSubmit={handelSubmit} className="form">
+    <form onSubmit={handleSubmit} className="form">
       <input
         type="text"
         id="city"

@@ -5,40 +5,58 @@ import Input from "./Components/Input";
 import Info from "./Components/Info";
 import Footer from "./Components/Footer";
 
-const API_key = "72c2205a619a93ea437378bb15e7030d";
-
 function App() {
   // city search variable
   const [city, setCity] = useState("");
+
+  // informations
+  const [info, setInfo] = useState({});
+
+  // set info loading
+  const [loading, setLoading] = useState(false);
+
   // get city name from <Input />
   const toApp = (inputCity) => {
     setCity(inputCity);
   };
 
-  // api
+  const fetchData = useCallback(async () => {
+    setLoading(false);
 
-  
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_key}`;
-  const [info, setInfo] = useState([]);
+    try {
+      if (city === "") {
+        return;
+      }
 
-  const getData = useCallback(async () => {
-    const response = await fetch(url);
-    const data = await response.json();
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`
+      );
 
-    setInfo(data);
-  }, [url]);
+      const data = await response.json();
+
+      if (data) {
+        setLoading(true);
+        const { main, name, sys, weather } = data;
+
+        setInfo({ main, name, sys, weather });
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [city]);
 
   useEffect(() => {
-    if (city.length) {
-      getData();
-    }
-  }, [city, getData]);
+    fetchData();
+  }, [city, fetchData]);
 
   return (
     <div className="App">
       <Header title="Weather App" />
       <Input toApp={toApp} />
-      <Info {...info} />
+      {loading && <Info {...info} />}
+
       <Footer />
     </div>
   );
